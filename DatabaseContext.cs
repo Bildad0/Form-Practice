@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace UserFormApp
 {
+    [DbConfigurationType(typeof(MyDbConfiguration))]
     class DatabaseContext: DbContext
     {
         //1. You need to provide connection string to base class

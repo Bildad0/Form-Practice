@@ -42,7 +42,7 @@ namespace UserFormApp
                 var User = new User()
                 {
                     //was unable to change field name.
-                    UserName = textBox1.Text, 
+                    UserName = textBox1.Text,
                     UserEmail = textBox3.Text,
                     UserAge= int.Parse(textBox2.Text),
                     UserCity = textBox4.Text
@@ -87,11 +87,7 @@ namespace UserFormApp
 
         private void txtInput_keyPress(object sender, KeyPressEventArgs e)
         {
-            string textBoxSender = ((TextBox)sender).Name;
-
-            if (e.KeyChar == 13)
-            {
-            }
+          
         }
     }
 }
