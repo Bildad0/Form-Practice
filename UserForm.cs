@@ -50,6 +50,8 @@ namespace UserFormApp
 
                 ctx.Users.Add(User);
                 ctx.SaveChanges();
+
+                MessageBox.Show("user saved successfully");
             }
         }
 
