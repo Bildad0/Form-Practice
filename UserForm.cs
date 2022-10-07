@@ -12,6 +12,8 @@ namespace UserFormApp
 {
     public partial class UserForm : Form
     {
+        private object errorProviderApp;
+
         public UserForm()
         {
             InitializeComponent();
@@ -37,6 +39,11 @@ namespace UserFormApp
             //You need to read the value from input fields....
             // Methods must be name to what they do,
             //fields must be name to what your mean/do.
+
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                MessageBox.Show("Welcome "+textBox1.Text, "");
+            }
             using (var ctx = new DatabaseContext())
             {
                 var User = new User()
@@ -88,6 +95,22 @@ namespace UserFormApp
         private void txtInput_keyPress(object sender, KeyPressEventArgs e)
         {
           
+        }
+
+        private void InputValidation(object sender, CancelEventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                e.Cancel = true;
+                textBox2.Focus();
+                errorProvider.SetError(textBox1,"Name should not be left blank!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(textBox1, "");
+            }
         }
     }
 }
