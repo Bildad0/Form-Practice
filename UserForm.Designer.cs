@@ -52,9 +52,9 @@ namespace UserFormApp
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(46, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = " Name :";
+            this.label1.Text = " Name *: ";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
@@ -72,9 +72,9 @@ namespace UserFormApp
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(46, 144);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Email :";
+            this.label3.Text = "Email * :";
             // 
             // label4
             // 
@@ -92,6 +92,7 @@ namespace UserFormApp
             this.textBox1.Size = new System.Drawing.Size(137, 20);
             this.textBox1.TabIndex = 4;
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInput_keyPress);
+            this.textBox1.Validating += new System.ComponentModel.CancelEventHandler(this.InputValidation);
             // 
             // textBox2
             // 
@@ -108,6 +109,7 @@ namespace UserFormApp
             this.textBox3.Size = new System.Drawing.Size(137, 20);
             this.textBox3.TabIndex = 6;
             this.textBox3.TextChanged += new System.EventHandler(this.Email);
+            this.textBox3.Validating += new System.ComponentModel.CancelEventHandler(this.EmailValidation);
             // 
             // textBox4
             // 
@@ -153,13 +155,13 @@ namespace UserFormApp
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(333, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(498, 245);
+            this.dataGridView1.Size = new System.Drawing.Size(498, 207);
             this.dataGridView1.TabIndex = 11;
             // 
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
-            this.errorProvider.RightToLeftChanged += new System.EventHandler(this.name);
+            this.errorProvider.RightToLeftChanged += new System.EventHandler(this.btnSave_Click);
             // 
             // UserForm
             // 

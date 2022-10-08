@@ -12,7 +12,7 @@ namespace UserFormApp
 {
     public partial class UserForm : Form
     {
-        private object errorProviderApp;
+
 
         public UserForm()
         {
@@ -42,7 +42,8 @@ namespace UserFormApp
 
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
-                MessageBox.Show("Welcome "+textBox1.Text, "");
+                MessageBox.Show("Welcome "+textBox1.Text);
+   
             }
             using (var ctx = new DatabaseContext())
             {
@@ -53,12 +54,12 @@ namespace UserFormApp
                     UserEmail = textBox3.Text,
                     UserAge= int.Parse(textBox2.Text),
                     UserCity = textBox4.Text
-                };
+                }; 
 
                 ctx.Users.Add(User);
                 ctx.SaveChanges();
 
-                MessageBox.Show("user saved successfully");
+                MessageBox.Show("Details saved successfully");
             }
         }
 
@@ -110,6 +111,31 @@ namespace UserFormApp
             {
                 e.Cancel = false;
                 errorProvider.SetError(textBox1, "");
+            }
+        }
+
+        private void EmailValidation(object sender, CancelEventArgs e)
+        {
+            //check if the input value is null
+            if (string.IsNullOrWhiteSpace(textBox3.Text))
+            {
+                e.Cancel = true;
+                textBox3.Focus();
+                errorProvider.SetError(textBox3, "Email is required");
+            }else if (textBox3.Text.IndexOf("@")>-1)
+            {
+                //check if there is '@' and a '.' in the correct order
+                if (textBox3.Text.IndexOf(".", textBox3.Text.IndexOf("@")) < textBox3.Text.IndexOf("@"))
+                {
+                    e.Cancel = true;
+                    textBox3.Focus();
+                    errorProvider.SetError(textBox3, "Use a valid Email");
+                }
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(textBox3, "");
             }
         }
     }
