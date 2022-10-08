@@ -70,6 +70,9 @@ namespace UserFormApp
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            UserForm NewForm = new UserForm();
+            NewForm.Show();
+            this.Dispose(false);
 
         }
 
@@ -98,13 +101,13 @@ namespace UserFormApp
           
         }
 
-        private void InputValidation(object sender, CancelEventArgs e)
+        private void NameValidation(object sender, CancelEventArgs e)
         {
 
             if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
                 e.Cancel = true;
-                textBox2.Focus();
+                textBox1.Focus();
                 errorProvider.SetError(textBox1,"Name should not be left blank!");
             }
             else
@@ -117,7 +120,7 @@ namespace UserFormApp
         private void EmailValidation(object sender, CancelEventArgs e)
         {
             //check if the input value is null
-            if (string.IsNullOrWhiteSpace(textBox3.Text))
+            if (string.IsNullOrWhiteSpace(textBox3.Text) && textBox3.Text.IndexOf("com")<0)
             {
                 e.Cancel = true;
                 textBox3.Focus();
@@ -125,12 +128,13 @@ namespace UserFormApp
             }else if (textBox3.Text.IndexOf("@")>-1)
             {
                 //check if there is '@' and a '.' in the correct order
-                if (textBox3.Text.IndexOf(".", textBox3.Text.IndexOf("@")) < textBox3.Text.IndexOf("@"))
+                if (textBox3.Text.IndexOf(".") < textBox3.Text.IndexOf("@"))
                 {
                     e.Cancel = true;
                     textBox3.Focus();
                     errorProvider.SetError(textBox3, "Use a valid Email");
                 }
+                
             }
             else
             {

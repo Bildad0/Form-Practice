@@ -92,7 +92,7 @@ namespace UserFormApp
             this.textBox1.Size = new System.Drawing.Size(137, 20);
             this.textBox1.TabIndex = 4;
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInput_keyPress);
-            this.textBox1.Validating += new System.ComponentModel.CancelEventHandler(this.InputValidation);
+            this.textBox1.Validating += new System.ComponentModel.CancelEventHandler(this.NameValidation);
             // 
             // textBox2
             // 
@@ -128,7 +128,7 @@ namespace UserFormApp
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            this.btnSave.Validating += new System.ComponentModel.CancelEventHandler(this.InputValidation);
+            this.btnSave.Validating += new System.ComponentModel.CancelEventHandler(this.NameValidation);
             // 
             // button2
             // 
