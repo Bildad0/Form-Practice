@@ -24,7 +24,8 @@ namespace UserFormApp
         public string UserEmail { get; set; }
 
         public string UserCity { get; set; }
-
-        public Job UserJob { get; set; }
+         
+        public int UserJobId { get; set; }
+        public virtual Job UserJob { get; set; }
     }
 }

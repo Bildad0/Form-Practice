@@ -71,13 +71,11 @@ namespace UserFormApp
                     UserCity = UsercityTextbox.Text
                 };
 
-                var Job = new Job()
-                {
-                    JobTitle=userjobtextbox.Text
-                };
+                var Job = new Job(){ JobTitle=userjobtextbox.Text };
+
+                User.UserJob = Job;
 
                 ctx.Users.AddOrUpdate(User);
-                ctx.Jobs.AddOrUpdate(Job);
                 ctx.SaveChanges();
                 Reset();
                 MessageBox.Show("Details saved successfully");
