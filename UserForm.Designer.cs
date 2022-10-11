@@ -34,16 +34,18 @@ namespace UserFormApp
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.nametextbox = new System.Windows.Forms.TextBox();
+            this.ageTextbox = new System.Windows.Forms.TextBox();
+            this.emailtextbox = new System.Windows.Forms.TextBox();
+            this.UsercityTextbox = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.EditBtn = new System.Windows.Forms.Button();
+            this.Edit = new System.Windows.Forms.Button();
+            this.userjobtextbox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -61,7 +63,7 @@ namespace UserFormApp
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(46, 88);
+            this.label2.Location = new System.Drawing.Point(59, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 1;
@@ -71,7 +73,7 @@ namespace UserFormApp
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(46, 144);
+            this.label3.Location = new System.Drawing.Point(51, 114);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 2;
@@ -80,45 +82,45 @@ namespace UserFormApp
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(46, 185);
+            this.label4.Location = new System.Drawing.Point(67, 144);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "City :";
             // 
-            // textBox1
+            // nametextbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(96, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(137, 20);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInput_keyPress);
-            this.textBox1.Validating += new System.ComponentModel.CancelEventHandler(this.NameValidation);
+            this.nametextbox.Location = new System.Drawing.Point(96, 42);
+            this.nametextbox.Name = "nametextbox";
+            this.nametextbox.Size = new System.Drawing.Size(137, 20);
+            this.nametextbox.TabIndex = 4;
+            this.nametextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInput_keyPress);
+            this.nametextbox.Validating += new System.ComponentModel.CancelEventHandler(this.NameValidation);
             // 
-            // textBox2
+            // ageTextbox
             // 
-            this.textBox2.Location = new System.Drawing.Point(90, 85);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(137, 20);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.TextChanged += new System.EventHandler(this.Age);
+            this.ageTextbox.Location = new System.Drawing.Point(96, 81);
+            this.ageTextbox.Name = "ageTextbox";
+            this.ageTextbox.Size = new System.Drawing.Size(137, 20);
+            this.ageTextbox.TabIndex = 5;
+            this.ageTextbox.TextChanged += new System.EventHandler(this.Age);
             // 
-            // textBox3
+            // emailtextbox
             // 
-            this.textBox3.Location = new System.Drawing.Point(90, 141);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(137, 20);
-            this.textBox3.TabIndex = 6;
-            this.textBox3.TextChanged += new System.EventHandler(this.Email);
-            this.textBox3.Validating += new System.ComponentModel.CancelEventHandler(this.EmailValidation);
+            this.emailtextbox.Location = new System.Drawing.Point(96, 111);
+            this.emailtextbox.Name = "emailtextbox";
+            this.emailtextbox.Size = new System.Drawing.Size(137, 20);
+            this.emailtextbox.TabIndex = 6;
+            this.emailtextbox.TextChanged += new System.EventHandler(this.Email);
+            this.emailtextbox.Validating += new System.ComponentModel.CancelEventHandler(this.EmailValidation);
             // 
-            // textBox4
+            // UsercityTextbox
             // 
-            this.textBox4.Location = new System.Drawing.Point(82, 182);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(137, 20);
-            this.textBox4.TabIndex = 7;
-            this.textBox4.TextChanged += new System.EventHandler(this.City);
+            this.UsercityTextbox.Location = new System.Drawing.Point(96, 141);
+            this.UsercityTextbox.Name = "UsercityTextbox";
+            this.UsercityTextbox.Size = new System.Drawing.Size(137, 20);
+            this.UsercityTextbox.TabIndex = 7;
+            this.UsercityTextbox.TextChanged += new System.EventHandler(this.City);
             // 
             // btnSave
             // 
@@ -133,17 +135,17 @@ namespace UserFormApp
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(292, 263);
+            this.button2.Location = new System.Drawing.Point(273, 263);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 9;
             this.button2.Text = "Delete";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.btnDelete_Click);
+            this.button2.Click += new System.EventHandler(this.DeleteUser);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(411, 263);
+            this.button3.Location = new System.Drawing.Point(383, 263);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 10;
@@ -158,36 +160,55 @@ namespace UserFormApp
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(498, 207);
             this.dataGridView1.TabIndex = 11;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GetCellValue);
             // 
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
             this.errorProvider.RightToLeftChanged += new System.EventHandler(this.btnSave_Click);
             // 
-            // EditBtn
+            // Edit
             // 
-            this.EditBtn.Location = new System.Drawing.Point(158, 263);
-            this.EditBtn.Name = "EditBtn";
-            this.EditBtn.Size = new System.Drawing.Size(75, 23);
-            this.EditBtn.TabIndex = 12;
-            this.EditBtn.Text = "Edit";
-            this.EditBtn.UseVisualStyleBackColor = true;
-            this.EditBtn.Click += new System.EventHandler(this.EditUser);
+            this.Edit.Location = new System.Drawing.Point(158, 263);
+            this.Edit.Name = "Edit";
+            this.Edit.Size = new System.Drawing.Size(75, 23);
+            this.Edit.TabIndex = 12;
+            this.Edit.Text = "Edit";
+            this.Edit.UseVisualStyleBackColor = true;
+            this.Edit.Click += new System.EventHandler(this.EditUser);
+            // 
+            // userjobtextbox
+            // 
+            this.userjobtextbox.Location = new System.Drawing.Point(96, 178);
+            this.userjobtextbox.Name = "userjobtextbox";
+            this.userjobtextbox.Size = new System.Drawing.Size(137, 20);
+            this.userjobtextbox.TabIndex = 13;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(63, 181);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(27, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Job:";
             // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 317);
-            this.Controls.Add(this.EditBtn);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.userjobtextbox);
+            this.Controls.Add(this.Edit);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.UsercityTextbox);
+            this.Controls.Add(this.emailtextbox);
+            this.Controls.Add(this.ageTextbox);
+            this.Controls.Add(this.nametextbox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -208,16 +229,18 @@ namespace UserFormApp
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox nametextbox;
+        private System.Windows.Forms.TextBox ageTextbox;
+        private System.Windows.Forms.TextBox emailtextbox;
+        private System.Windows.Forms.TextBox UsercityTextbox;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ErrorProvider errorProvider;
-        private System.Windows.Forms.Button EditBtn;
+        private System.Windows.Forms.Button Edit;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox userjobtextbox;
     }
 }
 
