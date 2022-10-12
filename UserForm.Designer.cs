@@ -46,6 +46,8 @@ namespace UserFormApp
             this.Edit = new System.Windows.Forms.Button();
             this.userjobtextbox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.DepatmentBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +60,6 @@ namespace UserFormApp
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = " Name *: ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -68,7 +69,6 @@ namespace UserFormApp
             this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Age :";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -94,7 +94,6 @@ namespace UserFormApp
             this.nametextbox.Name = "nametextbox";
             this.nametextbox.Size = new System.Drawing.Size(137, 20);
             this.nametextbox.TabIndex = 4;
-            this.nametextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInput_keyPress);
             this.nametextbox.Validating += new System.ComponentModel.CancelEventHandler(this.NameValidation);
             // 
             // ageTextbox
@@ -103,7 +102,6 @@ namespace UserFormApp
             this.ageTextbox.Name = "ageTextbox";
             this.ageTextbox.Size = new System.Drawing.Size(137, 20);
             this.ageTextbox.TabIndex = 5;
-            this.ageTextbox.TextChanged += new System.EventHandler(this.Age);
             // 
             // emailtextbox
             // 
@@ -111,7 +109,6 @@ namespace UserFormApp
             this.emailtextbox.Name = "emailtextbox";
             this.emailtextbox.Size = new System.Drawing.Size(137, 20);
             this.emailtextbox.TabIndex = 6;
-            this.emailtextbox.TextChanged += new System.EventHandler(this.Email);
             this.emailtextbox.Validating += new System.ComponentModel.CancelEventHandler(this.EmailValidation);
             // 
             // UsercityTextbox
@@ -120,7 +117,6 @@ namespace UserFormApp
             this.UsercityTextbox.Name = "UsercityTextbox";
             this.UsercityTextbox.Size = new System.Drawing.Size(137, 20);
             this.UsercityTextbox.TabIndex = 7;
-            this.UsercityTextbox.TextChanged += new System.EventHandler(this.City);
             // 
             // btnSave
             // 
@@ -193,11 +189,29 @@ namespace UserFormApp
             this.label5.TabIndex = 14;
             this.label5.Text = "Job:";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(23, 206);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Department :";
+            // 
+            // DepatmentBox
+            // 
+            this.DepatmentBox.Location = new System.Drawing.Point(96, 206);
+            this.DepatmentBox.Name = "DepatmentBox";
+            this.DepatmentBox.Size = new System.Drawing.Size(137, 20);
+            this.DepatmentBox.TabIndex = 16;
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 317);
+            this.Controls.Add(this.DepatmentBox);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.userjobtextbox);
             this.Controls.Add(this.Edit);
@@ -241,6 +255,8 @@ namespace UserFormApp
         private System.Windows.Forms.Button Edit;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox userjobtextbox;
+        private System.Windows.Forms.TextBox DepatmentBox;
+        private System.Windows.Forms.Label label6;
     }
 }
 

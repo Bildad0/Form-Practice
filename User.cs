@@ -12,6 +12,7 @@ namespace UserFormApp
     public class User
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
 
         [Required]
@@ -25,7 +26,14 @@ namespace UserFormApp
 
         public string UserCity { get; set; }
          
-        public int UserJobId { get; set; }
+        [ForeignKey("UserJobId")]
         public virtual Job UserJob { get; set; }
+
+        [ForeignKey("DepertmentId")]
+        public virtual Department UserDepartment { get; set; }
+
+        public int? UserJobId { get; set; }
+        public int? DepertmentId { get; set; }
+       
     }
 }

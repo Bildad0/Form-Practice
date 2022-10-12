@@ -40,15 +40,7 @@ namespace UserFormApp
             LoadData();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -73,8 +65,10 @@ namespace UserFormApp
 
                 var Job = new Job(){ JobTitle=userjobtextbox.Text };
 
-                User.UserJob = Job;
+                var Department = new Department() { DepartmentTitle = DepatmentBox.Text};
 
+                User.UserJob = Job;
+                User.UserDepartment = Department;
                 ctx.Users.AddOrUpdate(User);
                 ctx.SaveChanges();
                 Reset();
@@ -85,19 +79,6 @@ namespace UserFormApp
             }
         }
 
-      private void btnDelete_Click(User user)
-        {
-            using (var ctx = new DatabaseContext())
-            { 
-
-                var data = ctx.Users.Find(user.UserId);
-                ctx.Users.Remove(data);
-                ctx.SaveChanges();
-                MessageBox.Show("User Deleted succesfully");
-                LoadData();              
-            }
-        }
-
         public void Reset()
         {
             nametextbox.Text = "";
@@ -105,6 +86,7 @@ namespace UserFormApp
             emailtextbox.Text = "";
             UsercityTextbox.Text = "";
             userjobtextbox.Text = "";
+            DepatmentBox.Text = "";
         }
 
         public void EditDetails(int? UserId)
@@ -139,31 +121,6 @@ namespace UserFormApp
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Reset();
-        }
-
-        private void City(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Email(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Age(object sender, EventArgs e)
-        {
-
-        }
-
-        private void name(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtInput_keyPress(object sender, KeyPressEventArgs e)
-        {
-          
         }
 
         private void NameValidation(object sender, CancelEventArgs e)
@@ -228,7 +185,10 @@ namespace UserFormApp
 
         private void EditUser(object sender, EventArgs e)
         {
-
+            using(var ctx = new DatabaseContext())
+            {
+                var data = ctx.Users.Where(s=>s.UserId==1).FirstOrDefault();
+            }
             //EditDetails();
         }
 
@@ -247,6 +207,17 @@ namespace UserFormApp
 
         private void DeleteUser(object sender, EventArgs e)
         {
+
+            using (var ctx = new DatabaseContext())
+            {
+                var data = ctx.Users.FirstOrDefault();
+                
+                    ctx.Users.Remove(data);
+                    ctx.SaveChanges();
+                    MessageBox.Show("Data deleted Succesfully");
+                    LoadData();
+                
+            }
            
         }
     }

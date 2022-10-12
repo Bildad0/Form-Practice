@@ -20,6 +20,7 @@ namespace UserFormApp
 
         public DbSet<User> Users { get; set; }
         public DbSet<Job> Jobs { get; set; }
+        public DbSet<Department> Departments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -27,6 +28,7 @@ namespace UserFormApp
 
             modelBuilder.Entity<User>().ToTable("UserInfo");
             modelBuilder.Entity<Job>().ToTable("JobInfo");
+            modelBuilder.Entity<Department>().ToTable("DepartmentInfo");
         }
     }
 
