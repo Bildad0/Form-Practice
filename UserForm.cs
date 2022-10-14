@@ -100,7 +100,7 @@ namespace UserFormApp
                 var data = ctx.Users.Find(UserId);
                 var User = new User()
                 {
-                    //was unable to change field name.
+                   
                     UserName = nametextbox.Text,
                     UserEmail = emailtextbox.Text,
                     UserAge = int.Parse(ageTextbox.Text),
@@ -194,30 +194,22 @@ namespace UserFormApp
 
         private void GetCellValue(object sender, DataGridViewCellEventArgs e)
         {
-           using(var ctx = new DatabaseContext())
+            if (dataGridView1.Rows.Count > 0)
             {
-                var data = ctx.Users.Select(
-                    p=> new User()
+                foreach(DataGridViewRow row in dataGridView1.SelectedRows)
                 {
-                    UserId=p.UserId
-                });
-             
+                    nametextbox.Text = row.Cells[1].Value.ToString();
+                    emailtextbox.Text = row.Cells[3].Value.ToString();
+                    ageTextbox.Text = row.Cells[2].Value.ToString();
+                    UsercityTextbox.Text = row.Cells[4].Value.ToString();
+
+                }
             }
         }
 
         private void DeleteUser(object sender, EventArgs e)
         {
-
-            using (var ctx = new DatabaseContext())
-            {
-                var data = ctx.Users.FirstOrDefault();
-                
-                    ctx.Users.Remove(data);
-                    ctx.SaveChanges();
-                    MessageBox.Show("Data deleted Succesfully");
-                    LoadData();
-                
-            }
+          
            
         }
     }
