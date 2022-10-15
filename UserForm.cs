@@ -63,12 +63,6 @@ namespace UserFormApp
                     UserCity = UsercityTextbox.Text
                 };
 
-                var Job = new Job(){ JobTitle=userjobtextbox.Text };
-
-                var Department = new Department() { DepartmentTitle = DepatmentBox.Text};
-
-                User.UserJob = Job;
-                User.UserDepartment = Department;
                 ctx.Users.AddOrUpdate(User);
                 ctx.SaveChanges();
                 Reset();

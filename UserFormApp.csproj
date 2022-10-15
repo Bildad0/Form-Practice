@@ -86,6 +86,10 @@
     <Compile Include="DbConfiguration.cs" />
     <Compile Include="Departments.cs" />
     <Compile Include="Job.cs" />
+    <Compile Include="Migrations\202210151811058_Migration.cs" />
+    <Compile Include="Migrations\202210151811058_Migration.designer.cs">
+      <DependentUpon>202210151811058_Migration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserForm.cs">
@@ -96,6 +100,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Migrations\202210151811058_Migration.resx">
+      <DependentUpon>202210151811058_Migration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

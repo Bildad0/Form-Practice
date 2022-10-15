@@ -10,12 +10,6 @@ namespace UserFormApp
 {
    public class Job
     {
-
-        public Job()
-        {
-            this.Users = new HashSet<User>();
-            this.Departments = new HashSet<Department>();
-        }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int JobId { get; set; }
@@ -27,7 +21,11 @@ namespace UserFormApp
         public string JobDepartments { get; set; }
 
         ////another convention to set one t many relationship between the entities.
-        public virtual ICollection<User> Users { get; set; } = new List<User>();
-        public virtual ICollection<Department> Departments { get; set; } = new List<Department>();
+   
+        public int UserId { get; set; }
+        public User User { get; set; }
+
+        public int DepartmentId { get; set; }
+        public Department Department { get; set; }
     }
 }
