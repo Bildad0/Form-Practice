@@ -20,11 +20,7 @@ namespace UserFormApp
 
         public string JobDepartments { get; set; }
 
-        ////another convention to set one t many relationship between the entities.
-   
-        public int UserId { get; set; }
-        public User User { get; set; }
-
+        ////another convention to set one t0 many relationship between the entities.
         public int DepartmentId { get; set; }
         public Department Department { get; set; }
     }

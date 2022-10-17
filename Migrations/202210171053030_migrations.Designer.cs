@@ -7,13 +7,13 @@ namespace UserFormApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class Migration : IMigrationMetadata
+    public sealed partial class migrations : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Migration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(migrations));
         
         string IMigrationMetadata.Id
         {
-            get { return "202210151811058_Migration"; }
+            get { return "202210171053030_migrations"; }
         }
         
         string IMigrationMetadata.Source

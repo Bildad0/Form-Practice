@@ -56,7 +56,6 @@ namespace UserFormApp
             {
                 var User = new User()
                 {
-                    //was unable to change field name.
                     UserName = nametextbox.Text,
                     UserEmail = emailtextbox.Text,
                     UserAge= int.Parse(ageTextbox.Text),
@@ -83,34 +82,6 @@ namespace UserFormApp
             DepatmentBox.Text = "";
         }
 
-        public void EditDetails(int? UserId)
-        {
-            if (UserId == null)
-            {
-                MessageBox.Show("No such user!!");
-            }
-            using (var ctx= new DatabaseContext())
-            {
-                var data = ctx.Users.Find(UserId);
-                var User = new User()
-                {
-                   
-                    UserName = nametextbox.Text,
-                    UserEmail = emailtextbox.Text,
-                    UserAge = int.Parse(ageTextbox.Text),
-                    UserCity = UsercityTextbox.Text
-                    //UserJob= userjobtextbox.Text
-                    
-                };
-                ctx.Users.AddOrUpdate(User);
-                ctx.SaveChanges();
-                Reset();
-                MessageBox.Show("Details update successfully");
-                LoadData();
-
-            }
-
-        }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -179,11 +150,38 @@ namespace UserFormApp
 
         private void EditUser(object sender, EventArgs e)
         {
-            using(var ctx = new DatabaseContext())
+
+            EditDetails(int.Parse(idtextBox.Text));
+        }
+
+        public void EditDetails(int UserId)
+        {
+            using (var ctx = new DatabaseContext())
             {
-                var data = ctx.Users.Where(s=>s.UserId==1).FirstOrDefault();
+                User user = ctx.Users.Find(UserId);
+                var data = new User()
+                {
+
+                    UserName = nametextbox.Text,
+                    UserEmail = emailtextbox.Text,
+                    UserAge = int.Parse(ageTextbox.Text),
+                    UserCity = UsercityTextbox.Text
+                    //UserJob= userjobtextbox.Text
+
+                };
+
+                if(user!= null)
+                {
+                    ctx.Entry(user).CurrentValues.SetValues(data);
+                    ctx.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                    MessageBox.Show("User update Successfully");
+                }
+                ctx.SaveChanges();
+                Reset();
+                LoadData();
+
             }
-            //EditDetails();
+
         }
 
         private void GetCellValue(object sender, DataGridViewCellEventArgs e)
@@ -192,6 +190,7 @@ namespace UserFormApp
             {
                 foreach(DataGridViewRow row in dataGridView1.SelectedRows)
                 {
+                    idtextBox.Text = row.Cells[0].Value.ToString();
                     nametextbox.Text = row.Cells[1].Value.ToString();
                     emailtextbox.Text = row.Cells[3].Value.ToString();
                     ageTextbox.Text = row.Cells[2].Value.ToString();
@@ -203,8 +202,20 @@ namespace UserFormApp
 
         private void DeleteUser(object sender, EventArgs e)
         {
-          
-           
+            DeleteUserData(int.Parse(idtextBox.Text));
+        }
+
+        public void DeleteUserData(int id)
+        {
+            using(var ctx= new DatabaseContext())
+            {
+                User user = ctx.Users.Find(id);
+                ctx.Users.Remove(user);
+                MessageBox.Show("User is deleted Successfully");
+                ctx.SaveChanges();
+                Reset();
+                LoadData();
+            }
         }
     }
 }

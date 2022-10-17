@@ -48,6 +48,7 @@ namespace UserFormApp
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.DepatmentBox = new System.Windows.Forms.TextBox();
+            this.idtextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -205,11 +206,20 @@ namespace UserFormApp
             this.DepatmentBox.Size = new System.Drawing.Size(137, 20);
             this.DepatmentBox.TabIndex = 16;
             // 
+            // idtextBox
+            // 
+            this.idtextBox.Location = new System.Drawing.Point(96, 12);
+            this.idtextBox.Name = "idtextBox";
+            this.idtextBox.ReadOnly = true;
+            this.idtextBox.Size = new System.Drawing.Size(137, 20);
+            this.idtextBox.TabIndex = 17;
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 317);
+            this.Controls.Add(this.idtextBox);
             this.Controls.Add(this.DepatmentBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -257,6 +267,7 @@ namespace UserFormApp
         private System.Windows.Forms.TextBox userjobtextbox;
         private System.Windows.Forms.TextBox DepatmentBox;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox idtextBox;
     }
 }
 
